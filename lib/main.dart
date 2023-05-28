@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
       title: 'My Portfolio',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        fontFamily: 'Arial', // 폰트 설정
+        fontFamily: 'Arial',
       ),
       home: const PortfolioPage(),
     );
@@ -19,14 +19,14 @@ class MyApp extends StatelessWidget {
 }
 
 class PortfolioPage extends StatelessWidget {
-  const PortfolioPage({super.key});
+  const PortfolioPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'My Portfolio by Flutter(연습중)',
+          'My Portfolio by Flutter (연습중)',
           style: TextStyle(
             color: Colors.white,
             fontSize: 20,
@@ -46,6 +46,12 @@ class PortfolioPage extends StatelessWidget {
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
+            ),
+            const SizedBox(height: 16),
+            const CircleAvatar(
+              radius: 80,
+              backgroundImage:
+                  AssetImage('assets/profile_image.jpeg'), // 프로필 이미지 추가
             ),
             const SizedBox(height: 16),
             const Text(
@@ -88,17 +94,29 @@ class PortfolioPage extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             const Card(
-              child: ListTile(
+              child: ExpansionTile(
                 leading: Icon(Icons.work),
                 title: Text('체인라이트닝 컴퍼니'),
                 subtitle: Text('백엔드 개발자'),
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16),
+                    child: Text('체인라이트닝 컴퍼니 프로젝트에 대한 상세 설명입니다.'),
+                  ),
+                ],
               ),
             ),
             const Card(
-              child: ListTile(
+              child: ExpansionTile(
                 leading: Icon(Icons.work),
                 title: Text('똑똑한 개발자'),
                 subtitle: Text('패밀리노트/더존비즈온/인플랩/한국수산연구원'),
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16),
+                    child: Text('똑똑한 개발자 프로젝트에 대한 상세 설명입니다.'),
+                  ),
+                ],
               ),
             ),
           ],
