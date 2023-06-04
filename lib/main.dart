@@ -71,9 +71,16 @@ class PortfolioPage extends StatelessWidget {
               const SizedBox(height: 16),
               Row(
                 children: const [
-                  _SkillChip(label: 'Flutter'),
+                  _SkillChip(label: 'Python'),
+                  SizedBox(width: 8),
+                  _SkillChip(label: 'Django Rest Framework'),
+                  SizedBox(width: 8),
+                  _SkillChip(label: 'AWS'),
                   SizedBox(width: 8),
                   _SkillChip(label: 'Dart'),
+                  SizedBox(width: 8),
+                  _SkillChip(label: 'Flutter'),
+                  SizedBox(width: 8),
                 ],
               ),
               const SizedBox(height: 24),
@@ -89,23 +96,45 @@ class PortfolioPage extends StatelessWidget {
                 leadingIcon: Icons.work,
                 companyName: '체인라이트닝 컴퍼니',
                 position: '백엔드 개발자',
-                duration: '2020 - 2022',
+                duration: '2023.06 - Now',
                 projects: [
-                  '프로젝트 1',
-                  '프로젝트 2',
-                  '프로젝트 3',
+                  _ProjectTile(
+                    projectName: '프로젝트 1',
+                    projectDescription: '프로젝트 1 설명',
+                  ),
+                  _ProjectTile(
+                    projectName: '프로젝트 2',
+                    projectDescription: '프로젝트 2 설명',
+                  ),
+                  _ProjectTile(
+                    projectName: '프로젝트 3',
+                    projectDescription: '프로젝트 3 설명',
+                  ),
                 ],
               ),
               const SizedBox(height: 16),
               const _CompanyCard(
                 leadingIcon: Icons.work,
                 companyName: '똑똑한 개발자',
-                position: '패밀리노트/더존비즈온/인플랩/한국수산연구원',
-                duration: '2018 - 2020',
+                position: '백엔드 개발자',
+                duration: '2022.02 - 2023.05',
                 projects: [
-                  '프로젝트 A',
-                  '프로젝트 B',
-                  '프로젝트 C',
+                  _ProjectTile(
+                    projectName: '패밀리노트',
+                    projectDescription: '패밀리노트 설명',
+                  ),
+                  _ProjectTile(
+                    projectName: '더존비즈온',
+                    projectDescription: '더존비즈온 설명',
+                  ),
+                  _ProjectTile(
+                    projectName: '인플랩',
+                    projectDescription: '인플랩 설명',
+                  ),
+                  _ProjectTile(
+                    projectName: '한국수산연구원',
+                    projectDescription: '한국수산연구원 설명',
+                  ),
                 ],
               ),
             ],
@@ -138,7 +167,7 @@ class _CompanyCard extends StatelessWidget {
   final String companyName;
   final String position;
   final String duration;
-  final List<String> projects;
+  final List<_ProjectTile> projects;
 
   const _CompanyCard({
     Key? key,
@@ -166,18 +195,27 @@ class _CompanyCard extends StatelessWidget {
           ],
         ),
         subtitle: Text(position),
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 16, bottom: 8),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: projects.map((project) {
-                return Text('• $project');
-              }).toList(),
-            ),
-          ),
-        ],
+        children: projects,
       ),
+    );
+  }
+}
+
+class _ProjectTile extends StatelessWidget {
+  final String projectName;
+  final String projectDescription;
+
+  const _ProjectTile({
+    Key? key,
+    required this.projectName,
+    required this.projectDescription,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: Text(projectName),
+      subtitle: Text(projectDescription),
     );
   }
 }
