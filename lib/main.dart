@@ -34,18 +34,8 @@ class PortfolioPage extends StatelessWidget {
           ),
         ),
         backgroundColor: Colors.black,
-        leading: Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              icon: const Icon(Icons.menu),
-              onPressed: () {
-                Scaffold.of(context).openEndDrawer();
-              },
-            );
-          },
-        ),
       ),
-      drawer: Drawer(
+      endDrawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
