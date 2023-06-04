@@ -1,17 +1,18 @@
-# portfolio_remake
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
 # portfolio-flutter
+
+- [Portfolio Link](https://it-hongreat.github.io/portfolio-flutter)
+
+
+
+* 포트폴리오 스펙(html/css/js)을 개선하고 플러터를 이해하고자 플러터 웹을 빌드하게 됨.
+
+
+### Points
+
+* Github pages에 depoloy
+* git action 을 통한 build
+
+
+
+
+
