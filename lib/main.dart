@@ -26,7 +26,7 @@ class PortfolioPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'My Portfolio by Flutter (연습중)',
+          'Hong in yeong',
           style: TextStyle(
             color: Colors.white,
             fontSize: 20,
@@ -34,6 +34,49 @@ class PortfolioPage extends StatelessWidget {
           ),
         ),
         backgroundColor: Colors.black,
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(Icons.menu),
+              onPressed: () {
+                Scaffold.of(context).openEndDrawer();
+              },
+            );
+          },
+        ),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: Text(
+                'Check',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+            ListTile(
+              title: const Text('Skills'),
+              onTap: () {
+                Navigator.pop(context);
+                // Skills 화면으로 이동
+              },
+            ),
+            ListTile(
+              title: const Text('Career'),
+              onTap: () {
+                Navigator.pop(context);
+                // Career 화면으로 이동
+              },
+            ),
+          ],
+        ),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -195,7 +238,15 @@ class _CompanyCard extends StatelessWidget {
           ],
         ),
         subtitle: Text(position),
-        children: projects,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 16, bottom: 8),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: projects,
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -213,9 +264,12 @@ class _ProjectTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(projectName),
-      subtitle: Text(projectDescription),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text('• $projectName'),
+        Text(projectDescription),
+      ],
     );
   }
 }
